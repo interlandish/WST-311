@@ -1,0 +1,27 @@
+proc iml;
+
+mux = {4, 3, 2, 1};
+
+sigma = {3 0 2 2,
+		0 1 1 0,
+		2 1 7 -2,
+		2 0 -2 4};
+
+a = {1 2};
+b = {1 -2, 2 -1};
+
+expected_x2 = mux[3:4, ];
+expected_ax2 = a*mux[3:4, ];
+
+cov_x2 = sigma[3:4, 3:4];
+cov_ax2 = a * sigma[3:4, 3:4] * a`;
+
+cov_x1x2 = sigma[1:2, 3:4];
+
+cov_ax2bx2 = a* sigma[1:2, 3:4] * b`;
+
+print expected_x2 expected_ax2 cov_x2 cov_ax2 cov_x1x2 cov_ax2bx2;
+
+quit;
+
+
